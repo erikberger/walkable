@@ -1,0 +1,14 @@
+#map {
+  position: absolute;
+   width: 100%;
+   left: 0;
+   height:400px;
+}
+
+#go, .reset {
+  display: inline;
+}
+
+#result {
+  height: 60px;
+}
