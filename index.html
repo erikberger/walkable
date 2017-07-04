@@ -12,54 +12,45 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-<h1>Philly is Walkable</h1>
-<h3>See Walking Distances and Times Between Major Attractions</h3>
+<div class="main">
+  <h1>Philly is Walkable</h1>
+  <h3>See Walking Distances and Times Between Major Attractions</h3>
 
-<form id="go">
+  <form id="go">
 
-  <select name="start" id="start">
-    <option value="" disabled selected>Select your starting point</option>
-    <option value="ChIJ05tdhjTGxokReHRD0wXejyE">Franklin Institute</option>
-    <option value="ChIJL1AEC4PIxokRI--B-1PgOc4">Liberty Bell</option>
-    <option value="ChIJ_5CoRebFxokR08ApAyF2KIs">Philadelphia Musuem of Art</option>
-    <option value="ChIJCQH7WCnGxokRAWsd3AfQj80">Reading Terminal Market</option>
-  </select>
+    <select name="start" id="start">
+        <option value="" disabled selected>Select your starting point</option>
+    </select>
 
-  <select name="end" id="end" disabled>
-    <option value="" disabled selected>Select your ending point</option>
-    <option value="ChIJ05tdhjTGxokReHRD0wXejyE">Franklin Institute</option>
-    <option value="ChIJL1AEC4PIxokRI--B-1PgOc4">Liberty Bell</option>
-    <option value="ChIJ_5CoRebFxokR08ApAyF2KIs">Philadelphia Musuem of Art</option>
-    <option value="ChIJCQH7WCnGxokRAWsd3AfQj80">Reading Terminal Market</option>
-  </select>
+    <select name="end" id="end" disabled>
+      <option value="" disabled selected>Select your ending point</option>
+    </select>
 
-</form>
+  </form>
 
-<button class="reset" style="display: none;">Reset</button>
+  <button class="reset" style="display: none;">Reset</button>
 
-<div id="result">
-  <div class="miles"></div>
-  <div class="minutes"></div>
+  <div id="result">
+
+  </div>
+
+  <div id="map"></div>
+
+  <div class="source">*According to the <a href="https://developers.google.com/maps/documentation/distance-matrix/" target="_blank">Google Maps Distance Matrix API</a>.</div>
 </div>
 
-<div id="map"></div>
 
 
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-
-
-
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCDAmTfu1OrMJ9iW86dAbGgEUh9uCj-vVo&callback=initMap" defer></script>
+
 
   <script src="js/script.js"></script>
 

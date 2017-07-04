@@ -1,3 +1,25 @@
+  var spreadsheetID = "1GUYM3EXc_Cl-buKOBMbgLI5qVSMn0AAOmNEdn3AtVHY";
+
+  var url =
+    "https://spreadsheets.google.com/feeds/list/" +
+    spreadsheetID +
+    "/od6/public/values?alt=json";
+
+  $.getJSON(url, function(data) {
+    var entry = data.feed.entry;
+
+    $(entry).each(function() {
+
+        var name = this.gsx$attraction.$t;
+        var id = this.gsx$placeid.$t;
+
+        $("#start, #end").append('<option value="'+id+'">'+name+'</option>');
+
+        });
+      });
+
+
+
 function initMap() {
     // Create a map object and specify the DOM element for display.
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -117,12 +139,12 @@ $(document).ready(function () {
             })
             .success(function (data) {
 
-
                 var meters = data.rows[0].elements[0].distance.value;
                 var seconds = data.rows[0].elements[0].duration.value;
+                var startplace = $("#start option:selected").text();
+                var endplace = $("#end option:selected").text();
 
-                $(".miles").text(getMiles(meters) + " miles");
-                $(".minutes").text(getMinutes(seconds) + " minutes");
+                $("#result").text("It is "+getMiles(meters) + " miles and a " + getMinutes(seconds) + " minute walk from " + startplace + " to "+ endplace + ". *");
 
             })
 
@@ -132,6 +154,7 @@ $(document).ready(function () {
 
         $("#start, #end").prop("disabled", true);
         $(".reset").css("display", "inline");
+        $(".source").css("opacity", 1);
     });
 });
 
@@ -159,7 +182,7 @@ function deleteMarkers() {
 $(".reset").click(function () {
     deleteMarkers();
     $(this).hide();
-    $(".miles, .minutes").text("");
+    $("#result").text("");
     $("#start, #end").prop({
         "disabled": false,
         selectedIndex: 0
