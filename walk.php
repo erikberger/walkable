@@ -3,7 +3,7 @@
 $start = $_POST['start'];
 $end = $_POST['end'];
 
-$key = "AIzaSyBnQHxYtoYBg9-d179eXW1f92eXzF20hK8";
+$key = "hidden";
 
 $request = "https://maps.googleapis.com/maps/api/distancematrix/json?mode=walking&parameters&units=imperial&origins=place_id:{$start}&destinations=place_id:{$end}&key=".$key;
 
